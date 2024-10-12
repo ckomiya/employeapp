@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Empleado</title>
+</head>
+<body>
+    <h1>Editar Empleado</h1>
+    <form action="#" th:action="@{/empleados/guardar}" th:object="${empleado}" method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" th:field="*{id}" readonly /><br/>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required /><br/>
+        
+        <label for="cargo">Cargo:</label>
+        <input type="text" id="cargo" th:field="*{cargo}" required /><br/>
+
+        <label for="departamento">Departamento:</label>
+        <select id="departamento" th:field="*{departamento.id}" required>
+            <option th:each="dep : ${departamentos}" th:value="${dep.id}" th:text="${dep.nombre}" 
+                    th:selected="${empleado.departamento.id == dep.id}"></option>
+        </select><br/>
+
+        <label for="fechaNac">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNac" th:field="*{fechaNac}" required /><br/>
+
+        <label for="salario">Salario:</label>
+        <input type="number" id="salario" th:field="*{salario}" step="0.01" required /><br/>
+
+        <button type="submit">Actualizar</button>
+    </form>
+    <a href="/empleados">Volver a la Lista de Empleados</a>
+</body>
+</html>

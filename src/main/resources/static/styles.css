@@ -1,0 +1,165 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Estilos para tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para formularios */
+form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* Enlaces */
+.add-department-link {
+    display: block;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.add-department-link a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el menú desplegable */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50; /* Color del botón */
+    color: white; /* Color del texto */
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
+.dropdown-content {
+    display: none; /* Oculta el contenido por defecto */
+    position: absolute; /* Posiciona el contenido en relación al botón */
+    background-color: #f9f9f9; /* Color de fondo del dropdown */
+    min-width: 160px; /* Ancho mínimo */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Sombra */
+    z-index: 1; /* Asegura que el dropdown esté encima de otros elementos */
+}
+
+.dropdown-content a {
+    color: black; /* Color del texto del link */
+    padding: 12px 16px; /* Espaciado interno de los links */
+    text-decoration: none; /* Sin subrayado */
+    display: block; /* Hace que cada link ocupe todo el ancho */
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Color de fondo al pasar el ratón sobre un link */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Muestra el contenido al pasar el ratón sobre el dropdown */
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41; /* Cambia el color del botón al pasar el ratón */
+}
+
+/* Estilos para el pie de página */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

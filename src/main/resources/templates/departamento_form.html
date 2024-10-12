@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Departamento</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Carga del menú -->
+    <div th:replace="~{menu :: menu}"></div>
+
+    <div class="container mt-4">
+        <h1>Agregar Nuevo Departamento</h1>
+        <form action="#" th:action="@{/departamentos/guardar}" th:object="${departamento}" method="post">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" th:field="*{nombre}" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
+        <a class="btn btn-secondary mt-3" href="/departamentos">Volver a la Lista de Departamentos</a>
+    </div>
+
+    <!-- Carga de scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.11/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

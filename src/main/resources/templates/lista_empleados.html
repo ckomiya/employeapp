@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Empleados</title>
+</head>
+<body>
+    <h1>Lista de Empleados</h1>
+    <!-- Enlace para agregar un nuevo empleado -->
+    <a href="/empleados/agregar">Agregar Nuevo Empleado</a>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Cargo</th>
+                <th>Departamento</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Salario</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="empleado : ${empleados}">
+                <td th:text="${empleado.id}"></td>
+                <td th:text="${empleado.nombre}"></td>
+                <td th:text="${empleado.cargo}"></td>
+                <td th:text="${empleado.departamento.nombre}"></td>
+				<td th:text="${#dates.format(empleado.fechaNac, 'dd/MM/yyyy')}"></td>
+                <td th:text="${empleado.salario}"></td>
+                <td>
+                    <!-- Enlace para editar -->
+                    <a th:href="@{'empleados/editar/' + ${empleado.id}}">Editar</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <!-- Enlace para eliminar -->
+                    <a th:href="@{'empleados/eliminar/' + ${empleado.id}}">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+	
+	<div>
+	    <a href="/empleados/report">Descargar Reporte de Empleados (PDF)</a>
+	</div>
+</body>
+</html>

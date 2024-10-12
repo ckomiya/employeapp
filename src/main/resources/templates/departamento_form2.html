@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${departamento.id == null} ? 'Agregar Departamento' : 'Editar Departamento'">Agregar Departamento</title>
+</head>
+<body>
+    <h1 th:text="${departamento.id == null} ? 'Agregar Nuevo Departamento' : 'Editar Departamento'">Agregar Nuevo Departamento</h1>
+    <form action="#" th:action="@{/departamentos/guardar}" th:object="${departamento}" method="post">
+        <!-- Campo de ID -->
+        <input type="hidden" th:if="${departamento.id != null}" th:field="*{id}" />
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" /><br/>
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="/departamentos">Volver a la Lista de Departamentos</a>
+</body>
+</html>
