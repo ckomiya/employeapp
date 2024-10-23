@@ -22,6 +22,12 @@ public class Departamento{
     @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Empleado> empleados;
 
+    
+    public Departamento() {}
+    
+    public Departamento(Long id) {
+    	this.id = id;
+    }
 	public Long getId() {
 		return id;
 	}

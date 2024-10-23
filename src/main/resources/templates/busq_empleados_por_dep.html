@@ -6,8 +6,18 @@
 </head>
 <body>
     <h1>Lista de Empleados</h1>
-    <!-- Enlace para agregar un nuevo empleado -->
-    <a href="/empleados/agregar">Agregar Nuevo Empleado</a>
+    <!-- Formulario de búsqueda -->
+	<form action="/empleados/buscar_empleado_por_dep" th:object="${departamentoFilter}" method="get">
+			<label for="departamento">Departamento:</label>
+			<select id="departamento" th:field="*{id}" name="departamentoId" required>
+				<option th:each="d : ${departamentos}" th:value="${d.id}" th:text="${d.nombre}" 
+				th:selected="${id == d.id}">
+				</option>
+			</select>
+			<button type="submit">Buscar</button>
+		</form>
+
+  
     <table border="1" cellpadding="10">
         <thead>
             <tr>
@@ -16,8 +26,7 @@
                 <th>Cargo</th>
                 <th>Departamento</th>
                 <th>Fecha de Nacimiento</th>
-                <th>Salario</th>
-                <th>Acciones</th>
+                <th>Salario</th>      
             </tr>
         </thead>
         <tbody>
@@ -26,25 +35,10 @@
                 <td th:text="${empleado.nombre}"></td>
                 <td th:text="${empleado.cargo}"></td>
                 <td th:text="${empleado.departamento.nombre}"></td>
-				<td th:text="${#dates.format(empleado.fechaNac, 'dd/MM/yyyy')}"></td>
+                <td th:text="${#dates.format(empleado.fechaNac, 'dd/MM/yyyy')}"></td>
                 <td th:text="${empleado.salario}"></td>
-                <td>
-                    <!-- Enlace para editar -->
-                    <a th:href="@{'empleados/editar/' + ${empleado.id}}">Editar</a>
-                    &nbsp;&nbsp;&nbsp;
-                    <!-- Enlace para eliminar -->
-                    <a th:href="@{'empleados/eliminar/' + ${empleado.id}}">Eliminar</a>
-                </td>
             </tr>
         </tbody>
     </table>
-	
-	<div>
-	    <a href="/empleados/reporte">Descargar Reporte de Empleados (PDF)</a>
-	</div>
-	<div>
-		    <a href="/empleados/reporteGrafico">Descargar Reporte de Empleados con Gráfico (PDF)</a>
-		</div>
-	
 </body>
 </html>

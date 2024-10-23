@@ -1,0 +1,43 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="reporte_salarios" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3bffa096-fd1a-4c55-b809-885f9b67bd96">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="empleadodb_data_adapter"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleado"/>
+	</field>
+	<field name="salario" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="salario"/>
+		<property name="com.jaspersoft.studio.field.label" value="salario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empleado"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="260" splitType="Stretch">
+		<element kind="chart" chartType="bar" uuid="0ba8328d-e4c6-41c7-81e5-e449c60ff824" x="0" y="30" width="550" height="230" evaluationTime="Report">
+			<titleExpression><![CDATA["Reporte de Salarios"]]></titleExpression>
+			<dataset kind="category">
+				<series>
+					<seriesExpression><![CDATA["Salarios"]]></seriesExpression>
+					<categoryExpression><![CDATA[$F{nombre}]]></categoryExpression>
+					<valueExpression><![CDATA[$F{salario}]]></valueExpression>
+					<itemHyperlink linkType="None" linkTarget="Self"/>
+				</series>
+			</dataset>
+			<plot categoryAxisLabelColor="#000000" categoryAxisTickLabelColor="#000000" categoryAxisLineColor="#000000" valueAxisLabelColor="#000000" valueAxisTickLabelColor="#000000" valueAxisLineColor="#000000">
+				<categoryAxisLabelExpression><![CDATA["Empleados"]]></categoryAxisLabelExpression>
+				<valueAxisLabelExpression><![CDATA["Salarios"]]></valueAxisLabelExpression>
+				<itemLabel/>
+			</plot>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="61" splitType="Stretch"/>
+	<detail>
+		<band height="260" splitType="Stretch"/>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

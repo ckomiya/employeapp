@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cibertec.employeeapp.repository.EmpleadoRepository;
+import com.cibertec.model.Departamento;
 import com.cibertec.model.Empleado;
 
 @Service
@@ -41,6 +42,10 @@ public class EmpleadoService {
 	}
 	public void setEmpleadoRepository(EmpleadoRepository empleadoRepository) {
 		this.empleadoRepository = empleadoRepository;
+	}
+
+	public List<Empleado> obtenerEmpleadoPorDepartamento(Departamento departamento) {
+		return empleadoRepository.obtenerEmpleadoPorDepartamento(departamento);
 	}
 
 
