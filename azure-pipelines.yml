@@ -1,0 +1,36 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'  # Cambia a 'windows-latest' si es necesario
+
+steps:
+  - task: MavenAuthenticate@0  # Autenticación para Maven si es necesario
+    inputs:
+      mavenServiceConnection: 'your-maven-service-connection-name' # Cambia esto si necesitas autenticarte en un repositorio de Maven
+
+  - task: Maven@3  # Usar Maven para construir el proyecto
+    inputs:
+      mavenPomFile: 'pom.xml'  # Ruta al archivo pom.xml
+      goals: 'package'  # Construir el paquete
+      options: '-DskipTests'  # Omitir pruebas si es necesario
+      publishJUnitResults: false  # Publicar resultados de pruebas JUnit
+      mvnArguments: '-DskipTests'  # Omitir pruebas
+      options: '--settings $(MAVEN_SETTINGS)'
+
+  - task: ArchiveFiles@2  # Empaquetar el archivo JAR
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)/your-project-folder/target'  # Ruta al directorio de salida de Maven
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/drop.zip'
+      replaceExistingArchive: true
+
+  - task: AzureWebApp@1  # Desplegar a Azure App Service
+    inputs:
+      azureSubscription: 'Azure for Students'  # Tu conexión de servicio
+      appType: 'webApp'
+      appName: 'employeeapp1'  # Nombre de tu Azure App Service
+      package: '$(Build.ArtifactStagingDirectory)/drop.zip'  # Ruta al paquete ZIP creado
